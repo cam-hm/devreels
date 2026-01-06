@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: black;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden;
+  /* Prevent scrolling on the main container */
+}
+
+/* === MODE: RAW HTML === */
+/* Emulate the browser's user agent stylesheet */
+.mode-raw-html {
+  background-color: white !important;
+}
+
+.mode-raw-html * {
+  all: revert !important;
+  font-family: 'Times New Roman', Times, serif !important;
+  color: black !important;
+  display: block !important;
+  /* Reset common layout properties to ensure stacking */
+  position: static !important;
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  letter-spacing: normal !important;
+  line-height: normal !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Re-add standard block spacing for readability in raw mode */
+.mode-raw-html div,
+.mode-raw-html p,
+.mode-raw-html h1,
+.mode-raw-html h2,
+.mode-raw-html h3,
+.mode-raw-html li,
+.mode-raw-html ul {
+  display: block !important;
+  margin-bottom: 1rem !important;
+}
+
+.mode-raw-html h1 {
+  font-size: 2em !important;
+  font-weight: bold !important;
+  margin-top: 0.67em !important;
+  margin-bottom: 0.67em !important;
+}
+
+.mode-raw-html h2 {
+  font-size: 1.5em !important;
+  font-weight: bold !important;
+  margin-top: 0.83em !important;
+  margin-bottom: 0.83em !important;
+}
+
+.mode-raw-html h3 {
+  font-size: 1.17em !important;
+  font-weight: bold !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+.mode-raw-html ul {
+  list-style-type: disc !important;
+  padding-left: 40px !important;
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+}
+
+.mode-raw-html li {
+  display: list-item !important;
+}
+
+.mode-raw-html a {
+  text-decoration: underline !important;
+  color: blue !important;
+  display: inline !important;
+}
+
+/* Links should be inline */
+
+/* === MODE: WIREFRAME === */
+.preview-container.mode-wireframe {
+  background: #f0f0f0 !important;
+  color: black !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.preview-container.mode-wireframe * {
+  background: transparent !important;
+  /* No colors yet */
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  /* Add outlines to show structure */
+  outline: 1px solid #ccc;
+}
+
+.preview-container.mode-wireframe img,
+.preview-container.mode-wireframe video {
+  filter: grayscale(100%) opacity(0.5);
+}
+
+/* === ANIMATIONS === */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
