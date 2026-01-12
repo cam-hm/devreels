@@ -60,4 +60,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ by [Cam Hoang](https://github.com/camhm)
+Built with ❤️ by [Hoang Manh Cam](https://github.com/camhm)

@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
         description: "A headless fashion e-commerce platform focusing on speed and exclusivity. Features 'drop' style functionality with edge-cached waiting rooms.",
         tech: ["Hydrogen", "Shopify", "Redis", "Cloudflare Workers"],
         year: "2024",
-        aiInsight: "> PERFORMANCE: 99/100 Lighthouse score. Capable of handling peaks of 100k concurrent users during flash sales.",
+        aiInsight: "The biggest challenge was handling 'flash sale' traffic spikes (100k+ concurrents). I implemented a custom 'Waiting Room' queue on Cloudflare Workers (Edge) to intercept traffic before it hits the Shopify API. This reduced origin load by 95% and ensured zero downtime during drops. We also used Redis for real-time inventory locking to prevent overselling.",
         stats: { likes: 1243, comments: 42, shares: 187 },
         placeholderColor: "from-slate-900 to-black",
         videoSrc: "/reels/voice-commerce.mp4",
@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
         description: "Smart time-tracking and prediction engine for developers. Integrates with local git hooks to estimate task duration automatically.",
         tech: ["Rust", "Tauri", "SQLite", "React"],
         year: "2024",
-        aiInsight: "> PRIVACY: Local-first architecture. All data stays on the device. Rust backend ensures memory safety and near-zero footprint.",
+        aiInsight: "Privacy was paramount, so we chose a 'Local-First' architecture using Tauri and Rust. The core problem was analyzing active window data without draining battery. I optimized the polling engine in Rust to use <0.5% CPU. Data is stored in a local encrypted SQLite DB. The 'AI Prediction' uses a lightweight ONNX model running locally to classify tasks based on window titles and git branch names.",
         stats: { likes: 3421, comments: 128, shares: 563 },
         placeholderColor: "from-emerald-950 to-teal-950",
         videoSrc: "/reels/chronos.mp4",
@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
         description: "Real-time fleet management dashboard for global shipping lines. Visualizes thousands of vessels and containers on an interactive globe.",
         tech: ["Mapbox GL", "React", "Supabase", "Go"],
         year: "2025",
-        aiInsight: "> SCALE: Handles 50,000+ moving entities in real-time using WebSocket clustering and GeoHasing techniques.",
+        aiInsight: "Rendering 50,000+ moving ships on a map causes massive performance issues (DOM trashing). I solved this by using Mapbox GL layers with a custom WebGL deck.gl overlay tailored for high-frequency updates. On the backend, we used Go + Redis GeoSpatial indexes to cluster vessels and only push viewport-relevant updates via WebSocket to the client, keeping frame rates at a steady 60fps.",
         stats: { likes: 2104, comments: 85, shares: 432 },
         placeholderColor: "from-blue-950 to-slate-900",
         videoSrc: "/reels/apex-logistic.mp4",
@@ -105,7 +105,7 @@ export const PROJECTS: Project[] = [
         description: "A modern neobank mobile application focused on sustainability. Tracks the carbon footprint of every transaction you make.",
         tech: ["React Native", "Node.js", "GraphQL", "PostgreSQL"],
         year: "2024",
-        aiInsight: "> IMPACT: Every transaction is enriched with ESG data to calculate estimated CO2 emissions in milliseconds.",
+        aiInsight: "The main challenge was the real-time classification of transactions to estimate CO2. We built an event-driven architecture using Apache Kafka. When a transaction webhook hits our system, it enters a pipeline that cleans the merchant data, matches it against a sustainability API (MCC Codes), and pushes the 'Carbon Score' back to the user app via GraphQL Subscription in under 200ms.",
         stats: { likes: 4567, comments: 324, shares: 1205 },
         placeholderColor: "from-green-950 to-emerald-950",
         videoSrc: "/reels/carbon-banking.mp4",
@@ -127,7 +127,7 @@ export const PROJECTS: Project[] = [
         description: "Telemedicine platform connecting patients with specialists. Features secure video calls, digital prescriptions, and AI-assisted triage.",
         tech: ["Next.js", "WebRTC", "HIPAA Compliant Cloud", "Python"],
         year: "2023",
-        aiInsight: "> SECURITY: End-to-end encryption for all video calls and patient records (EHR). Fully HIPAA/GDPR compliant.",
+        aiInsight: "Security and Compliance (HIPAA) were the blockers. We implemented End-to-End Encryption (E2EE) for the video feature using WebRTC and a custom TURN server. All Patient Health Information (PHI) is stored encrypted at rest with per-tenant keys. We also built an Audit Log service that tracks every single data access pattern to ensure full accountability and compliance.",
         stats: { likes: 1892, comments: 94, shares: 257 },
         placeholderColor: "from-cyan-950 to-blue-900",
         videoSrc: "/reels/revive-medical.mp4",
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
         description: "A distraction-free publishing platform for thoughtful writers. Designed with a focus on beautiful typography and reading experience.",
         tech: ["Next.js", "MDX", "Tailwind Typography", "Supabase"],
         year: "2024",
-        aiInsight: "> UX/UI: Implements optimistic UI updates for instant autosave. Custom rendering engine ensures perfect vertical rhythm.",
+        aiInsight: "We wanted 'Instant' page loads. I utilized Next.js Incremental Static Regeneration (ISR) to cache blog posts globally. For the editor, we implemented 'Optimistic UI' for saving drafts - updates are applied to the UI immediately while syncing to Supabase in the background, making the editor feel native. We also handle MDX compilation on the server to ensure high performance and SEO.",
         stats: { likes: 2753, comments: 156, shares: 612 },
         placeholderColor: "from-stone-900 to-neutral-900",
         videoSrc: "/reels/blog.mp4",
@@ -165,6 +165,30 @@ export const PROJECTS: Project[] = [
         }
     }
 ];
+
+export const PROFILE = {
+    bio: "Senior Product Engineer specializing in high-performance web & mobile apps.",
+    experience: [
+        {
+            role: "Principal Engineer",
+            company: "Fintech & SaaS Stealth",
+            year: "2024 - Present",
+            description: "Leading architecture for a high-frequency trading platform."
+        },
+        {
+            role: "Senior Full Stack",
+            company: "Global Logistics Tech",
+            year: "2022 - 2024",
+            description: "Built real-time fleet management dashboards using Mapbox & Go."
+        },
+        {
+            role: "Software Engineer",
+            company: "Startups & freelance",
+            year: "2016 - 2022",
+            description: "Delivered 12+ MVPs for YC startups and enterprise clients."
+        }
+    ]
+};
 
 export const SKILLS: Skill[] = [
     { name: "React/Next.js", category: "frontend", level: 98 },

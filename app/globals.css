@@ -10,8 +10,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: black;
   font-family: 'Courier New', Courier, monospace;
-  overflow: hidden;
-  /* Prevent scrolling on the main container */
+  /* overflow: hidden; Removed to allow scrolling on other pages */
 }
 
 /* === MODE: RAW HTML === */

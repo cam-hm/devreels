@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin, Link as LinkIcon, Download } from "lucide-react";
+import Link from "next/link";
 import { SKILLS } from "@/lib/data";
 import { useState } from "react";
 import ContactModal from "./ContactModal";
@@ -21,7 +22,7 @@ export default function ProfileSidebar() {
                     <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-neutral-900 animate-pulse"></div>
                 </div>
 
-                <h1 className="text-2xl font-bold tracking-tight mb-1">Cam Hoang</h1>
+                <h1 className="text-2xl font-bold tracking-tight mb-1">Hoang Manh Cam</h1>
                 <p className="text-blue-400 font-mono text-xs uppercase tracking-wider mb-4">Senior Product Engineer</p>
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -32,7 +33,7 @@ export default function ProfileSidebar() {
 
                 <div className="flex space-x-3 text-gray-500">
                     <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                    <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+                    <a href="https://linkedin.com/in/hoang-manh-cam" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
                     <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></button>
                 </div>
             </div>
@@ -107,13 +108,14 @@ export default function ProfileSidebar() {
 
             {/* FOOTER ACTION */}
             <div className="mt-auto p-8 border-t border-neutral-800">
-                <button
-                    onClick={() => window.open("/resume.pdf", "_blank")}
+                <Link
+                    href="/resume"
+                    target="_blank"
                     className="w-full flex items-center justify-center space-x-2 bg-white text-black py-3 rounded font-bold text-sm hover:bg-gray-200 transition-colors"
                 >
                     <Download size={16} />
-                    <span>Download Resume</span>
-                </button>
+                    <span>View Resume</span>
+                </Link>
             </div>
 
         </div>
