@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎥 DevReels Portfolio
 
-## Getting Started
+> A modern, cinematic portfolio template inspired by TikTok/Reels.
+> Showcase your work with vertical video feeds, interactive AI chat, and a sleek dark-mode UI.
 
-First, run the development server:
+![DevReels Banner](public/banner.png)
 
+## ✨ Features
+
+- **📱 Cinematic Feed**: Infinite vertical video scrolling with snap physics and keyboard navigation.
+- **🤖 Context-Aware AI**: Integrated "Lead Developer" persona (powered by Gemini 1.5 Flash) that answers technical questions about each specific project.
+- **⚡ High Performance**: Built on Next.js 16 (App Router), Server Actions, and React Server Components.
+- **🎨 Premium UX**: Minimalist dark mode, glassmorphism interactions, and fluid Framer Motion animations.
+- **🛠 Realistic Case Studies**: Pre-configured structure for detailed project deep-dives (Problem, Solution, Tech Stack).
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **AI Integration**: Google Generative AI (Gemini)
+- **Icons**: Lucide React
+- **Deployment**: Vercel ready
+
+## 📦 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/yourusername/devreels.git
+cd devreels
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Environment Setup
+Create a `.env.local` file in the root directory and add your Google Gemini API key:
+```env
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
+
+### 4. Run the development server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  customization
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Projects Data**: Edit `lib/data.ts` to update your portfolio items, video links, and case study details.
+- **Profile Info**: Update `components/reels/ProfileSidebar.tsx` with your own bio and avatar.
+- **Videos**: Place your vertical demo videos (9:16 aspect ratio) in the `public/reels/` folder.
 
-## Learn More
+## 📄 License
 
-To learn more about Next.js, take a look at the following resources:
+This project is open source and available under the [MIT License](LICENSE).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by [Cam Hoang](https://github.com/camhm)

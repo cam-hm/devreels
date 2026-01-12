@@ -7,11 +7,31 @@ import ProfileSidebar from "./ProfileSidebar";
 import SidePanel from "./SidePanel";
 import { cn } from "@/lib/utils";
 import { ChevronUp, ChevronDown, Heart, Share2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function FacebookLayout() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeProject, setActiveProject] = useState<Project>(PROJECTS[0]);
+
+    // Local state for Likes (Persists during session)
+    const [likesState, setLikesState] = useState<Record<string, { count: number; isLiked: boolean }>>({});
+
+    // Like Handler
+    const handleLike = useCallback(() => {
+        const projectId = activeProject.id;
+        setLikesState(prev => {
+            const current = prev[projectId] || { count: activeProject.stats.likes, isLiked: false };
+            const newIsLiked = !current.isLiked;
+            const newCount = newIsLiked ? current.count + 1 : current.count - 1;
+            return {
+                ...prev,
+                [projectId]: { count: newCount, isLiked: newIsLiked }
+            };
+        });
+    }, [activeProject]);
+
+    const currentLikeState = likesState[activeProject.id] || { count: activeProject.stats.likes, isLiked: false };
 
     // Handle Scroll Snap Detection to sync with SidePanel
     useEffect(() => {
@@ -88,18 +108,34 @@ export default function FacebookLayout() {
                     <div className="w-full max-w-[500px] relative h-full">
                         <div className="hidden md:flex absolute left-full bottom-8 ml-4 flex-col items-center gap-6 pointer-events-auto">
 
-                            {/* AVATAR (Dev Profile) */}
-                            <div className="w-12 h-12 rounded-full border-2 border-white/20 overflow-hidden shadow-lg relative cursor-pointer hover:border-white transition-colors">
-                                <img src="/avatar.jpeg" alt="Dev Avatar" className="w-full h-full object-cover" />
-                                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-black"></div>
-                            </div>
+                            {/* [Removed Redundant Avatar] */}
 
                             {/* LIKE */}
-                            <div className="flex flex-col items-center group cursor-pointer">
-                                <div className="p-3 rounded-full bg-neutral-800/50 backdrop-blur-md border border-white/10 group-hover:bg-white/10 transition-colors">
-                                    <Heart className="w-6 h-6 text-white" />
+                            <div className="flex flex-col items-center group cursor-pointer" onClick={handleLike}>
+                                <div className={cn(
+                                    "p-3 rounded-full backdrop-blur-md border transition-all duration-300 relative overflow-hidden",
+                                    currentLikeState.isLiked
+                                        ? "bg-red-500/20 border-red-500"
+                                        : "bg-neutral-800/50 border-white/10 group-hover:bg-white/10"
+                                )}>
+                                    <motion.div
+                                        animate={currentLikeState.isLiked ? { scale: [1, 1.5, 1] } : { scale: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <Heart
+                                            className={cn(
+                                                "w-6 h-6 transition-colors duration-300",
+                                                currentLikeState.isLiked ? "text-red-500 fill-red-500" : "text-white"
+                                            )}
+                                        />
+                                    </motion.div>
                                 </div>
-                                <span className="text-xs font-bold mt-1 text-white/70">{activeProject.stats.likes}</span>
+                                <span className={cn(
+                                    "text-xs font-bold mt-1 transition-colors",
+                                    currentLikeState.isLiked ? "text-red-400" : "text-white/70"
+                                )}>
+                                    {currentLikeState.count}
+                                </span>
                             </div>
 
                             {/* SHARE */}

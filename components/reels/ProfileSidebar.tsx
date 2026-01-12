@@ -22,11 +22,12 @@ export default function ProfileSidebar() {
                 </div>
 
                 <h1 className="text-2xl font-bold tracking-tight mb-1">Cam Hoang</h1>
-                <p className="text-blue-400 font-mono text-xs uppercase tracking-wider mb-4">Creative Technologist</p>
+                <p className="text-blue-400 font-mono text-xs uppercase tracking-wider mb-4">Senior Product Engineer</p>
 
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                    Building digital ecosystems that bridge the gap between AI capability and human intuition.
-                    Obsessed with performance, motion, and clean architecture.
+                    Specializing in high-performance web & mobile applications.
+                    I bridge the gap between complex backend systems and intuitive user experiences.
+                    Focused on Fintech, Logistics, and Privacy.
                 </p>
 
                 <div className="flex space-x-3 text-gray-500">
@@ -41,11 +42,11 @@ export default function ProfileSidebar() {
             {/* 2. STATS / FACTS */}
             <div className="p-8 grid grid-cols-2 gap-4">
                 <div>
-                    <span className="block text-2xl font-bold text-white">4+</span>
+                    <span className="block text-2xl font-bold text-white">9+</span>
                     <span className="text-xs text-gray-500 uppercase">Years Exp.</span>
                 </div>
                 <div>
-                    <span className="block text-2xl font-bold text-white">12</span>
+                    <span className="block text-2xl font-bold text-white">99+</span>
                     <span className="text-xs text-gray-500 uppercase">Projects</span>
                 </div>
                 <div>
@@ -82,23 +83,23 @@ export default function ProfileSidebar() {
 
                     <div className="relative group">
                         <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-blue-500 border border-neutral-900 group-hover:scale-150 transition-transform" />
-                        <span className="text-xs text-blue-400 font-mono mb-1 block">2026 - Present</span>
-                        <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Senior Frontend Eng.</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Stealth AI Startup</p>
-                    </div>
-
-                    <div className="relative group">
-                        <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 group-hover:bg-neutral-500 transition-colors" />
-                        <span className="text-xs text-gray-500 font-mono mb-1 block">2024 - 2025</span>
-                        <h4 className="text-sm font-bold text-gray-300">Fullstack Developer</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Freelance/Contract</p>
+                        <span className="text-xs text-blue-400 font-mono mb-1 block">2024 - Present</span>
+                        <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Senior Product Eng.</h4>
+                        <p className="text-xs text-gray-500 mt-0.5">Fintech & SaaS Stealth</p>
                     </div>
 
                     <div className="relative group">
                         <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 group-hover:bg-neutral-500 transition-colors" />
                         <span className="text-xs text-gray-500 font-mono mb-1 block">2022 - 2024</span>
-                        <h4 className="text-sm font-bold text-gray-300">Junior Developer</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Tech Solutions Inc.</p>
+                        <h4 className="text-sm font-bold text-gray-300">Full Stack Engineer</h4>
+                        <p className="text-xs text-gray-500 mt-0.5">Global Logistics Tech</p>
+                    </div>
+
+                    <div className="relative group">
+                        <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 group-hover:bg-neutral-500 transition-colors" />
+                        <span className="text-xs text-gray-500 font-mono mb-1 block">2020 - 2022</span>
+                        <h4 className="text-sm font-bold text-gray-300">Software Engineer</h4>
+                        <p className="text-xs text-gray-500 mt-0.5">Startups & freelance</p>
                     </div>
 
                 </div>

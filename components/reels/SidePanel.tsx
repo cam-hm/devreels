@@ -58,18 +58,20 @@ export default function SidePanel({ project }: SidePanelProps) {
     return (
         <div className="h-full flex flex-col bg-neutral-900 border-l border-neutral-800 text-white w-full max-w-md shadow-2xl z-20">
 
-            {/* 1. HEADER (Author Info) */}
-            <div className="p-4 border-b border-neutral-800 flex items-center space-x-3 bg-neutral-900 z-10">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 p-[2px]">
-                    <div className="w-full h-full rounded-full bg-black flex items-center justify-center text-[10px] font-bold">
-                        DEV
+            {/* 1. HEADER (Project Meta) */}
+            <div className="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-900 z-10">
+                <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-neu-800 border border-white/10 flex items-center justify-center bg-neutral-800">
+                        <Code2 className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <div>
+                        <h3 className="font-bold text-sm text-white">{project.category}</h3>
+                        <p className="text-xs text-green-400 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                            Deployed • {project.year}
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <h3 className="font-bold text-sm">Antigravity Portfolio</h3>
-                    <p className="text-xs text-gray-500">Suggested for you • {project.year}</p>
-                </div>
-                <button className="ml-auto text-blue-500 text-sm font-bold hover:text-blue-400">Follow</button>
             </div>
 
             {/* 2. PROJECT DETAILS (Scrollable) */}
