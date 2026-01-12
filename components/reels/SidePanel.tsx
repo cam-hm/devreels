@@ -91,12 +91,12 @@ export default function SidePanel({ project }: SidePanelProps) {
                     {/* ACTION BUTTONS */}
                     <div className="flex gap-3 mb-8">
                         {project.link && (
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white text-black py-2 rounded text-center text-sm font-bold hover:bg-gray-200 transition-colors">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white text-black py-2 rounded text-center text-sm font-bold hover:bg-gray-200 transition-colors cursor-pointer">
                                 Live Demo
                             </a>
                         )}
                         {project.github && (
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 bg-neutral-800 border border-neutral-700 text-white py-2 rounded text-center text-sm font-bold hover:bg-neutral-700 transition-colors">
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 bg-neutral-800 border border-neutral-700 text-white py-2 rounded text-center text-sm font-bold hover:bg-neutral-700 transition-colors cursor-pointer">
                                 Source Code
                             </a>
                         )}
@@ -196,7 +196,7 @@ export default function SidePanel({ project }: SidePanelProps) {
                     <button
                         onClick={handleSend}
                         disabled={!input.trim()}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-blue-500 hover:bg-neutral-700 disabled:opacity-50 disabled:hover:bg-transparent transition-all"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-blue-500 hover:bg-neutral-700 disabled:opacity-50 disabled:hover:bg-transparent transition-all cursor-pointer"
                     >
                         <Send size={18} />
                     </button>
