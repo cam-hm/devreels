@@ -79,24 +79,37 @@ export default function SidePanel({ project }: SidePanelProps) {
 
                 {/* Caption Area */}
                 <div className="p-4 pb-6">
-                    <h1 className="text-2xl font-bold mb-2">{project.title}</h1>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        <span className="bg-neutral-800 text-neutral-400 px-2 py-0.5 rounded text-xs border border-neutral-700">{project.category}</span>
+                    <h1 className="text-3xl font-bold mb-4 text-white leading-tight">{project.title}</h1>
+
+                    {/* Category */}
+                    <div className="mb-3">
+                        <span className="bg-white text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg shadow-white/10">
+                            {project.category}
+                        </span>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-6">
                         {project.tech.map(t => (
-                            <span key={t} className="bg-blue-900/20 text-blue-400 px-2 py-0.5 rounded text-xs border border-blue-900/30">#{t}</span>
+                            <span key={t} className="bg-neutral-800 text-neutral-200 px-2.5 py-1 rounded-md text-xs border border-neutral-700 font-medium font-mono">
+                                #{t}
+                            </span>
                         ))}
                     </div>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-6">{project.description}</p>
+
+                    <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-8 font-light tracking-wide">
+                        {project.description}
+                    </p>
 
                     {/* ACTION BUTTONS */}
                     <div className="flex gap-3 mb-8">
                         {project.link && (
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white text-black py-2 rounded text-center text-sm font-bold hover:bg-gray-200 transition-colors cursor-pointer">
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex-1 bg-blue-600 text-white py-3 rounded-lg text-center text-sm font-bold hover:bg-blue-500 transition-all shadow-lg shadow-blue-900/20 cursor-pointer">
                                 Live Demo
                             </a>
                         )}
                         {project.github && (
-                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 bg-neutral-800 border border-neutral-700 text-white py-2 rounded text-center text-sm font-bold hover:bg-neutral-700 transition-colors cursor-pointer">
+                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex-1 bg-neutral-800 border border-neutral-700 text-white py-3 rounded-lg text-center text-sm font-bold hover:bg-neutral-700 transition-all cursor-pointer">
                                 Source Code
                             </a>
                         )}
@@ -104,20 +117,29 @@ export default function SidePanel({ project }: SidePanelProps) {
 
                     {/* CASE STUDY */}
                     {project.details && (
-                        <div className="space-y-6 mb-8">
+                        <div className="space-y-8 mb-8">
                             <div>
-                                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">The Challenge</h4>
-                                <p className="text-sm text-gray-300 leading-relaxed">{project.details.problem}</p>
+                                <h4 className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span className="w-8 h-px bg-blue-500/50"></span>
+                                    The Challenge
+                                </h4>
+                                <p className="text-white/90 text-sm leading-7">{project.details.problem}</p>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">The Solution</h4>
-                                <p className="text-sm text-gray-300 leading-relaxed">{project.details.solution}</p>
+                                <h4 className="text-xs font-bold text-green-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span className="w-8 h-px bg-green-500/50"></span>
+                                    The Solution
+                                </h4>
+                                <p className="text-white/90 text-sm leading-7">{project.details.solution}</p>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Key Features</h4>
-                                <ul className="space-y-2">
+                                <h4 className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                    <span className="w-8 h-px bg-purple-500/50"></span>
+                                    Key Features
+                                </h4>
+                                <ul className="space-y-3">
                                     {project.details.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start text-sm text-gray-300">
+                                        <li key={idx} className="flex items-start text-sm text-gray-200">
                                             <span className="mr-2 text-blue-500">•</span>
                                             {feature}
                                         </li>
