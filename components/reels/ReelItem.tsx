@@ -2,17 +2,18 @@
 
 import { Project } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, MessageCircle, Share2, Code2 } from "lucide-react";
+import { Heart, MessageCircle, Share2, Code2, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface ReelItemProps {
     project: Project;
     isActive: boolean;
+    isVisible: boolean;
     onOpenComments: () => void;
 }
 
-export default function ReelItem({ project, isActive, onOpenComments }: ReelItemProps) {
+export default function ReelItem({ project, isActive, isVisible, onOpenComments }: ReelItemProps) {
     const [liked, setLiked] = useState(false);
 
     return (
@@ -20,7 +21,7 @@ export default function ReelItem({ project, isActive, onOpenComments }: ReelItem
 
             {/* BACKGROUND (Video or Gradient) */}
             <div className={cn("absolute inset-0 bg-gradient-to-br z-0", project.placeholderColor)}>
-                {project.videoSrc && (
+                {project.videoSrc && isVisible ? (
                     <video
                         src={project.videoSrc}
                         className="absolute inset-0 w-full h-full object-cover"
@@ -29,20 +30,13 @@ export default function ReelItem({ project, isActive, onOpenComments }: ReelItem
                         loop
                         playsInline
                     />
-                )}
-                {!project.videoSrc && (
-                    <motion.div
-                        animate={{
-                            backgroundPosition: ["0% 0%", "100% 100%"],
-                            opacity: [0.3, 0.6, 0.3],
-                        }}
-                        transition={{
-                            duration: 10,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-150 contrast-150"
-                    />
+                ) : (
+                    <div className="absolute inset-0 flex items-center justify-center bg-neutral-900">
+                        <div className="flex flex-col items-center gap-2">
+                            <Loader2 className="w-8 h-8 text-blue-500 animate-spin" />
+                            <span className="text-xs text-neutral-500 font-mono tracking-widest uppercase">Loading System...</span>
+                        </div>
+                    </div>
                 )}
             </div>
 
@@ -97,7 +91,6 @@ export default function ReelItem({ project, isActive, onOpenComments }: ReelItem
                 {/* AVATAR (Dev Profile) */}
                 <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden mb-4 shadow-lg relative group cursor-pointer hover:scale-110 transition-transform">
                     <img src="/avatar.jpeg" alt="Dev" className="w-full h-full object-cover" />
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border border-black"></div>
                 </div>
 
                 {/* LIKE */}

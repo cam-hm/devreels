@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { ChevronUp, ChevronDown, Heart, Share2, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// INFINITY SCROLL: Duplicate projects to simulate endless feed
-const DISPLAY_PROJECTS = Array(50).fill(PROJECTS).flat().map((p, i) => ({
+// STANDARD SCROLL: Single list of projects
+const DISPLAY_PROJECTS = PROJECTS.map((p, i) => ({
     ...p,
     uniqueId: `${p.id}-${i}` // Ensure unique keys for React
 }));
@@ -234,6 +234,7 @@ export default function FacebookLayout() {
                             <ReelItem
                                 project={project}
                                 isActive={index === activeIndex}
+                                isVisible={Math.abs(index - activeIndex) <= 1}
                                 onOpenComments={() => setShowMobileDetails(true)}
                             />
                         </div>
