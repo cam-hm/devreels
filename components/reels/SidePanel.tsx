@@ -58,21 +58,6 @@ export default function SidePanel({ project }: SidePanelProps) {
     return (
         <div className="h-full flex flex-col bg-neutral-900 border-l border-neutral-800 text-white w-full max-w-md shadow-2xl z-20">
 
-            {/* 1. HEADER (Project Meta) */}
-            <div className="p-4 border-b border-neutral-800 flex items-center justify-between bg-neutral-900 z-10">
-                <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 rounded-full bg-neu-800 border border-white/10 flex items-center justify-center bg-neutral-800">
-                        <Code2 className="w-5 h-5 text-blue-400" />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-sm text-white">{project.category}</h3>
-                        <p className="text-xs text-green-400 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                            Deployed • {project.year}
-                        </p>
-                    </div>
-                </div>
-            </div>
 
             {/* 2. PROJECT DETAILS (Scrollable) */}
             <div className="flex-1 overflow-y-auto custom-scrollbar flex flex-col">
@@ -81,11 +66,15 @@ export default function SidePanel({ project }: SidePanelProps) {
                 <div className="p-4 pb-6">
                     <h1 className="text-3xl font-bold mb-4 text-white leading-tight">{project.title}</h1>
 
-                    {/* Category */}
-                    <div className="mb-3">
+                    {/* Category & Status */}
+                    <div className="mb-4 flex items-center gap-3">
                         <span className="bg-white text-black px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg shadow-white/10">
                             {project.category}
                         </span>
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-900/30 border border-green-800/50">
+                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                            <span className="text-xs text-green-400 font-bold tracking-wider uppercase">Deployed • {project.year}</span>
+                        </div>
                     </div>
 
                     {/* Tech Stack */}
