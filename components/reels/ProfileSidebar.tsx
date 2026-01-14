@@ -21,16 +21,16 @@ export default function ProfileSidebar() {
                     <img src="/avatar.jpeg" alt="Cam Hoang" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
 
-                <h1 className="text-2xl font-bold tracking-tight mb-1">Hoang Manh Cam</h1>
-                <p className="text-blue-400 font-mono text-xs uppercase tracking-wider mb-4">Senior Product Engineer</p>
+                <h1 className="text-3xl font-bold tracking-tight mb-2 text-white">Hoang Manh Cam</h1>
+                <p className="text-blue-400 font-mono text-xs uppercase tracking-wider mb-6 font-bold">Senior Product Engineer</p>
 
-                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                <p className="text-gray-200 text-sm leading-relaxed mb-6 font-light tracking-wide">
                     Specializing in high-performance web & mobile applications.
                     I bridge the gap between complex backend systems and intuitive user experiences.
                     Focused on Fintech, Logistics, and Privacy.
                 </p>
 
-                <div className="flex space-x-3 text-gray-500">
+                <div className="flex space-x-3 text-gray-400">
                     <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
                     <a href="https://linkedin.com/in/hoang-manh-cam" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
                     <button onClick={() => setIsContactOpen(true)} className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></button>
@@ -43,19 +43,19 @@ export default function ProfileSidebar() {
             <div className="p-8 grid grid-cols-2 gap-4">
                 <div>
                     <span className="block text-2xl font-bold text-white">9+</span>
-                    <span className="text-xs text-gray-500 uppercase">Years Exp.</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wider font-bold">Years Exp.</span>
                 </div>
                 <div>
                     <span className="block text-2xl font-bold text-white">99+</span>
-                    <span className="text-xs text-gray-500 uppercase">Projects</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wider font-bold">Projects</span>
                 </div>
                 <div>
                     <span className="block text-2xl font-bold text-white">VN</span>
-                    <span className="text-xs text-gray-500 uppercase">Based</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wider font-bold">Based</span>
                 </div>
                 <div>
                     <span className="block text-2xl font-bold text-green-400">Open</span>
-                    <span className="text-xs text-gray-500 uppercase">To Work</span>
+                    <span className="text-xs text-gray-400 uppercase tracking-wider font-bold">To Work</span>
                 </div>
             </div>
 
@@ -63,10 +63,13 @@ export default function ProfileSidebar() {
 
             {/* 3. SKILLS */}
             <div className="p-8">
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Core Stack</h3>
+                <h3 className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <span className="w-8 h-px bg-blue-500/50"></span>
+                    Core Stack
+                </h3>
                 <div className="flex flex-wrap gap-2">
                     {SKILLS.map((skill, i) => (
-                        <span key={i} className="px-2 py-1 bg-neutral-800 rounded border border-neutral-700 text-xs text-gray-300 hover:border-blue-500/50 hover:text-blue-400 transition-colors cursor-default">
+                        <span key={i} className="px-2.5 py-1 bg-neutral-800 rounded-md border border-neutral-700 text-xs text-neutral-200 font-medium font-mono hover:border-blue-500/50 hover:text-blue-400 transition-colors cursor-default">
                             {skill.name}
                         </span>
                     ))}
@@ -77,29 +80,32 @@ export default function ProfileSidebar() {
 
             {/* 4. EXPERIENCE TIMELINE */}
             <div className="p-8">
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">Timeline</h3>
+                <h3 className="text-xs font-bold text-green-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <span className="w-8 h-px bg-green-500/50"></span>
+                    Timeline
+                </h3>
 
-                <div className="space-y-6 border-l border-neutral-800 ml-1 pl-6 relative">
+                <div className="space-y-8 border-l border-neutral-800 ml-1 pl-6 relative">
 
                     <div className="relative group">
                         <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-blue-500 border border-neutral-900 group-hover:scale-150 transition-transform" />
-                        <span className="text-xs text-blue-400 font-mono mb-1 block">2024 - Present</span>
+                        <span className="text-xs text-blue-400 font-mono mb-1 block font-bold">2024 - Present</span>
                         <h4 className="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">Senior Product Eng.</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Fintech & SaaS Stealth</p>
+                        <p className="text-xs text-gray-400 mt-1">Fintech & SaaS Stealth</p>
                     </div>
 
                     <div className="relative group">
                         <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 group-hover:bg-neutral-500 transition-colors" />
                         <span className="text-xs text-gray-500 font-mono mb-1 block">2022 - 2024</span>
                         <h4 className="text-sm font-bold text-gray-300">Full Stack Engineer</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Global Logistics Tech</p>
+                        <p className="text-xs text-gray-500 mt-1">Global Logistics Tech</p>
                     </div>
 
                     <div className="relative group">
                         <div className="absolute -left-[29px] top-1 w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 group-hover:bg-neutral-500 transition-colors" />
                         <span className="text-xs text-gray-500 font-mono mb-1 block">2020 - 2022</span>
                         <h4 className="text-sm font-bold text-gray-300">Software Engineer</h4>
-                        <p className="text-xs text-gray-500 mt-0.5">Startups & freelance</p>
+                        <p className="text-xs text-gray-500 mt-1">Startups & freelance</p>
                     </div>
 
                 </div>
