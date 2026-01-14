@@ -140,7 +140,7 @@ export default function FacebookLayout() {
                         className="absolute inset-0 z-50 bg-neutral-900 xl:hidden overflow-y-auto"
                     >
                         <div className="absolute top-4 right-4 z-50">
-                            <button onClick={() => setShowMobileProfile(false)} className="p-2 bg-black/50 rounded-full text-white">
+                            <button onClick={() => setShowMobileProfile(false)} className="p-2 bg-black/50 rounded-full text-white cursor-pointer hover:bg-black/70 transition-colors">
                                 <ChevronUp className="rotate-[-90deg]" />
                             </button>
                         </div>
@@ -162,7 +162,7 @@ export default function FacebookLayout() {
                 {/* Navigation & Action Buttons (Desktop Only) - Anchored to Video Feed */}
                 <div className="absolute inset-0 flex justify-center pointer-events-none z-50">
                     <div className="w-full max-w-[500px] relative h-full">
-                        <div className="hidden md:flex absolute left-full bottom-8 ml-4 flex-col items-center gap-6 pointer-events-auto">
+                        <div className="hidden xl:flex absolute left-full bottom-8 ml-4 flex-col items-center gap-6 pointer-events-auto">
 
                             {/* [Removed Redundant Avatar] */}
 

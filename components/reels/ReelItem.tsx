@@ -86,7 +86,7 @@ export default function ReelItem({ project, isActive, isVisible, onOpenComments 
             </div>
 
             {/* INTERACTION SIDEBAR - Hidden on Desktop (Moved to Layout) */}
-            <div className="absolute right-4 bottom-20 md:right-8 md:bottom-20 z-20 flex flex-col items-center space-y-6 lg:hidden">
+            <div className="absolute right-4 bottom-20 md:right-8 md:bottom-20 z-20 flex flex-col items-center space-y-6 xl:hidden">
 
                 {/* AVATAR (Dev Profile) */}
                 <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden mb-4 shadow-lg relative group cursor-pointer hover:scale-110 transition-transform">
@@ -99,14 +99,6 @@ export default function ReelItem({ project, isActive, isVisible, onOpenComments 
                         <Heart className={cn("w-8 h-8", liked && "fill-current")} />
                     </div>
                     <span className="text-xs font-bold mt-1 text-white shadow-black drop-shadow-md">{project.stats.likes + (liked ? 1 : 0)}</span>
-                </div>
-
-                {/* COMMENT (AI Code Review) */}
-                <div className="flex flex-col items-center cursor-pointer group" onClick={onOpenComments}>
-                    <div className="p-3 rounded-full bg-white/10 backdrop-blur-md group-hover:bg-white/20 transition-all">
-                        <Code2 className="w-8 h-8 text-white" />
-                    </div>
-                    <span className="text-xs font-bold mt-1 text-white shadow-black drop-shadow-md">{project.stats.comments}</span>
                 </div>
 
                 {/* SHARE */}
