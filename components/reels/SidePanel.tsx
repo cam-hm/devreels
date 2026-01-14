@@ -154,9 +154,9 @@ export default function SidePanel({ project }: SidePanelProps) {
 
                 {/* 3. AI CHAT INTERFACE (The "Comments") */}
                 <div className="flex-1 px-4 pb-4 flex flex-col relative" ref={scrollRef}>
-                    <div className="flex items-center space-x-2 mb-6 opacity-50">
-                        <Code2 className="w-4 h-4 text-gray-400" />
-                        <span className="text-xs font-mono uppercase tracking-widest text-gray-500">Ask the Architect 🤖</span>
+                    <div className="flex items-center space-x-2 mb-6">
+                        <Code2 className="w-4 h-4 text-blue-400 animate-pulse" />
+                        <span className="text-xs font-mono uppercase tracking-widest text-blue-200 font-bold">Ask the Architect 🤖</span>
                     </div>
 
                     <AnimatePresence initial={false}>
