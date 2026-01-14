@@ -3,14 +3,38 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 import { PROJECTS } from "@/lib/data";
+import { headers } from "next/headers";
 
 const apiKey = process.env.GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey || "dummy_key");
+
+// Simple In-Memory Rate Limiter (Note: Resets on Cloud Run cold start/scaling)
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 
 export async function chatWithProject(query: string, projectId: string) {
     if (!apiKey) {
         return "Demo Mode: I cannot connect to Gemini without an API Key. Please add GOOGLE_API_KEY to .env.local.";
     }
+
+    // RATE LIMITING
+    const ip = (await headers()).get("x-forwarded-for") || "unknown";
+    const now = Date.now();
+    const windowMs = 60 * 1000; // 1 Minute
+    const maxRequests = 5; // 5 messages per minute
+
+    const record = rateLimitMap.get(ip) || { count: 0, lastReset: now };
+
+    if (now - record.lastReset > windowMs) {
+        record.count = 0;
+        record.lastReset = now;
+    }
+
+    if (record.count >= maxRequests) {
+        return "System Overload: Rate limit exceeded. Please wait a moment before sending more messages.";
+    }
+
+    record.count++;
+    rateLimitMap.set(ip, record);
 
     // SECURITY: Fetch project data from trusted server source
     const projectContext = PROJECTS.find(p => p.id === projectId);
