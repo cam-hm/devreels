@@ -46,7 +46,7 @@ export default function SidePanel({ project }: SidePanelProps) {
         setIsTyping(true);
 
         try {
-            const response = await chatWithProject(userMsg, project);
+            const response = await chatWithProject(userMsg, project.id);
             setIsTyping(false);
             setMessages(prev => [...prev, { role: "ai", text: response }]);
         } catch (e) {

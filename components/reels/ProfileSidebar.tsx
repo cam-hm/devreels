@@ -19,7 +19,6 @@ export default function ProfileSidebar() {
             <div className="p-8 pb-4">
                 <div className="w-24 h-24 rounded-full border-2 border-white/20 mb-6 overflow-hidden relative shadow-2xl group cursor-pointer">
                     <img src="/avatar.jpeg" alt="Cam Hoang" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                    <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-neutral-900 animate-pulse"></div>
                 </div>
 
                 <h1 className="text-2xl font-bold tracking-tight mb-1">Hoang Manh Cam</h1>

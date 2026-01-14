@@ -2,12 +2,21 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+import { PROJECTS } from "@/lib/data";
+
 const apiKey = process.env.GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey || "dummy_key");
 
-export async function chatWithProject(query: string, projectContext: any) {
+export async function chatWithProject(query: string, projectId: string) {
     if (!apiKey) {
         return "Demo Mode: I cannot connect to Gemini without an API Key. Please add GOOGLE_API_KEY to .env.local.";
+    }
+
+    // SECURITY: Fetch project data from trusted server source
+    const projectContext = PROJECTS.find(p => p.id === projectId);
+
+    if (!projectContext) {
+        return "System Error: Project data corrupted or not found.";
     }
 
     try {

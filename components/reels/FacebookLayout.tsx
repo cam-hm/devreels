@@ -116,7 +116,7 @@ export default function FacebookLayout() {
                 <button onClick={() => setShowMobileProfile(true)} className="p-2 -ml-2 text-white cursor-pointer hover:bg-white/10 rounded-full transition-colors">
                     <img src="/icon.png" className="w-8 h-8 rounded-full" />
                 </button>
-                <span className="font-bold text-sm tracking-widest text-white/50">DEVREELS</span>
+                <span className="font-bold text-sm tracking-widest text-white/50">HOANG MANH CAM</span>
                 <button onClick={() => setShowMobileDetails(true)} className="p-2 -mr-2 text-white cursor-pointer hover:bg-white/10 rounded-full transition-colors">
                     <div className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center border border-white/10">
                         <Info size={16} />
