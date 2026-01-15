@@ -86,7 +86,7 @@ export default function SidePanel({ project }: SidePanelProps) {
                         ))}
                     </div>
 
-                    <p className="text-gray-200 text-sm md:text-base leading-relaxed mb-8 font-light tracking-wide">
+                    <p className="text-gray-200 text-sm leading-relaxed mb-6 font-light tracking-wide">
                         {project.description}
                     </p>
 
