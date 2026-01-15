@@ -112,14 +112,14 @@ export default function SidePanel({ project }: SidePanelProps) {
                                     <span className="w-8 h-px bg-blue-500/50"></span>
                                     The Challenge
                                 </h4>
-                                <p className="text-white/90 text-sm leading-7">{project.details.problem}</p>
+                                <p className="text-gray-200 text-sm leading-relaxed font-light tracking-wide">{project.details.problem}</p>
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold text-green-400 uppercase tracking-widest mb-3 flex items-center gap-2">
                                     <span className="w-8 h-px bg-green-500/50"></span>
                                     The Solution
                                 </h4>
-                                <p className="text-white/90 text-sm leading-7">{project.details.solution}</p>
+                                <p className="text-gray-200 text-sm leading-relaxed font-light tracking-wide">{project.details.solution}</p>
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-3 flex items-center gap-2">
@@ -128,7 +128,7 @@ export default function SidePanel({ project }: SidePanelProps) {
                                 </h4>
                                 <ul className="space-y-3">
                                     {project.details.features.map((feature, idx) => (
-                                        <li key={idx} className="flex items-start text-sm text-gray-200">
+                                        <li key={idx} className="flex items-start text-sm text-gray-200 font-light tracking-wide leading-relaxed">
                                             <span className="mr-2 text-blue-500">•</span>
                                             {feature}
                                         </li>
